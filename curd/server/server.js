@@ -7,7 +7,9 @@ import bodyParser from 'body-parser';
 const app = express();
 
 const PORT = process.env.PORT || 8000;
-connection();
+
+const URL = process.env.MONGODB_URI || `mongodb+srv://admin:admin@curd-app.macgqd1.mongodb.net/?retryWrites=true&w=majority` 
+connection(URL);
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,7 +21,7 @@ app.use('/', Routes);
 // heroku code:
 if(process.env.NODE_ENV==='production')
 {
-    app.use(express.static(path.join(__dirname,"client","build")));
+    app.use(express.static(client/build));
     // app.get("*",(req,resp)=>{
     //     resp.sendFile(path.join(__dirname,"client","build","index.html"));
     // })

@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
-const connection = async () => {
-  const URL = `mongodb+srv://admin:admin@curd-app.macgqd1.mongodb.net/?retryWrites=true&w=majority`
+const connection = async (URL) => {
   try {
     await mongoose.connect(URL, {
       useUnifiedTopology: true,
