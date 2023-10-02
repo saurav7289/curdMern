@@ -18,14 +18,7 @@ app.use(express.json());
 app.use('/', Routes);
 
 
-// heroku code:
-if(process.env.NODE_ENV==='production')
-{
-    app.use(express.static(client/build));
-    // app.get("*",(req,resp)=>{
-    //     resp.sendFile(path.join(__dirname,"client","build","index.html"));
-    // })
-}
+
 
 
 app.listen(PORT, () => console.log(`server run at port ${PORT}`));
